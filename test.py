@@ -23,3 +23,17 @@ def fahrenheit_to_celsius(fahrenheit: float) -> float:
 
 print(celsius_to_fahrenheit(-10))
 print(fahrenheit_to_celsius(-104))
+
+def is_prime(n: int) -> bool:
+    if not isinstance(n, int) or n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(7))
+print(is_prime(10))
+print(is_prime(1))
+print(is_prime(0))
+print(is_prime(-10))
