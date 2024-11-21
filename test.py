@@ -22,3 +22,6 @@ def fahrenheit_to_celsius(fahrenheit: float) -> float:
         if not isinstance(fahrenheit, (int, float)):
             raise ValueError("Input must be a number.")
         return (fahrenheit - 32) * 5/9
+
+print(celsius_to_fahrenheit(10))
+print(fahrenheit_to_celsius(104))
