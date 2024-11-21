@@ -4,7 +4,7 @@ def fibonacci(n: int) -> int:
     elif n == 0:
         return 0
     elif n == 1:
-        return 0
+        return 1
     elif n == 2:
         return 1
     else:
@@ -23,5 +23,5 @@ def fahrenheit_to_celsius(fahrenheit: float) -> float:
             raise ValueError("Input must be a number.")
         return (fahrenheit - 32) * 5/9
 
-print(celsius_to_fahrenheit(10))
-print(fahrenheit_to_celsius(104))
+print(celsius_to_fahrenheit(-10))
+print(fahrenheit_to_celsius(-104))
