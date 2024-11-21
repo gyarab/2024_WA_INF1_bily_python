@@ -21,9 +21,6 @@ def fahrenheit_to_celsius(fahrenheit: float) -> float:
             raise ValueError("Input must be a number.")
         return (fahrenheit - 32) * 5/9
 
-print(celsius_to_fahrenheit(-10))
-print(fahrenheit_to_celsius(-104))
-
 def is_prime(n: int) -> bool:
     if not isinstance(n, int) or n <= 1:
         raise ValueError("Input must be a natural number.")
@@ -31,9 +28,3 @@ def is_prime(n: int) -> bool:
         if n % i == 0:
             return False
     return True
-
-print(is_prime(7))
-print(is_prime(10))
-print(is_prime(1))
-print(is_prime(0))
-print(is_prime(-10))
