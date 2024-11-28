@@ -92,8 +92,3 @@ def class_and_break_time(start_class: int, end_class: int) -> tuple:
     break_duration = sum(break_times[start_class:end_class])
     
     return class_duration, break_duration
-
-print(class_and_break_time(1, 12))
-print(class_and_break_time(3,4))
-print(class_and_break_time(1, 12))
-print(class_and_break_time(1, 1))
