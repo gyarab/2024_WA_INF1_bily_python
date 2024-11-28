@@ -1,6 +1,5 @@
 from typing import List
-
-
+import math
 def fibonacci(n: int) -> int:
     if not isinstance(n, int) or n < 0:
         raise ValueError("Input must be a non-negative integer.")
@@ -15,32 +14,43 @@ def fibonacci(n: int) -> int:
         return b
     
 def celsius_to_fahrenheit(celsius: float) -> float:
-        if not isinstance(celsius, (int, float)):
-            raise ValueError("Input must be a number.")
-        return (celsius * 9/5) + 32
+    if not isinstance(celsius, (int, float)):
+        raise ValueError("Input must be a number.")
+    return (celsius * 9/5) + 32
 
 def fahrenheit_to_celsius(fahrenheit: float) -> float:
-        if not isinstance(fahrenheit, (int, float)):
-            raise ValueError("Input must be a number.")
-        return (fahrenheit - 32) * 5/9
+    if not isinstance(fahrenheit, (int, float)):
+        raise ValueError("Input must be a number.")
+    return (fahrenheit - 32) * 5/9
 
 def is_prime(n: int) -> bool:
     if not isinstance(n, int) or n < 1:
         raise ValueError("Input must be a natural number.")
-    if i == 1:
-        return False
-    for i in range(2, int(n**0.5) + 1):
+    for i in range(2, math.isqrt(n) + 1):
         if n % i == 0:
             return False
-    return True
+    return n > 1
 
 def primes_in_range(a: int, b: int) -> List[int]:
-        if not isinstance(a, int) or not isinstance(b, int) or a < 0 or b < 0:
-            raise ValueError("Both inputs must be non-negative integers.")
-        if b < a:
-            a, b = b, a
-        primes = []
-        for num in range(a, b + 1):
-            if is_prime(num):
-                primes.append(num)
-        return primes
+    if not isinstance(a, int) or not isinstance(b, int) or a < 0 or b < 0:
+        raise ValueError("Both inputs must be non-negative integers.")
+    if b < a:
+        a, b = b, a
+    primes = []
+    for num in range(a, b + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
+        
+        
+        
+        
+def rotate_array(arr: List[int], n: int) -> List[int]:
+    if not isinstance(arr, list) or not isinstance(n, int):
+        raise ValueError("Both arguments must be a list and an integer.")
+    if n < 0:
+        n = len(arr) - abs(n) % len(arr)
+    elif n > 0:
+        n = n % len(arr)
+    return arr[-n:] + arr[:-n]
