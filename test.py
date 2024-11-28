@@ -29,18 +29,6 @@ def is_prime(n: int) -> bool:
         if n % i == 0:
             return False
     return n > 1
-
-def primes_in_range(a: int, b: int) -> List[int]:
-    if not isinstance(a, int) or not isinstance(b, int) or a < 0 or b < 0:
-        raise ValueError("Both inputs must be non-negative integers.")
-    if b < a:
-        a, b = b, a
-    primes = []
-    for num in range(a, b + 1):
-        if is_prime(num):
-            primes.append(num)
-    return primes
-
         
 def rotate_array(arr, n):
     if not isinstance(arr, list) or not isinstance(n, int):
