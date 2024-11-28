@@ -1,4 +1,3 @@
-from typing import List
 import math
 def fibonacci(n: int) -> int:
     if not isinstance(n, int) or n < 0:
@@ -43,14 +42,14 @@ def primes_in_range(a: int, b: int) -> List[int]:
     return primes
 
         
-        
-        
-        
-def rotate_array(arr: List[int], n: int) -> List[int]:
+def rotate_array(arr, n):
     if not isinstance(arr, list) or not isinstance(n, int):
         raise ValueError("Both arguments must be a list and an integer.")
     if n < 0:
         n = len(arr) - abs(n) % len(arr)
     elif n > 0:
         n = n % len(arr)
-    return arr[-n:] + arr[:-n]
+    rotated_arr = []
+    for i in range(len(arr)):
+        rotated_arr.append(arr[(i - n) % len(arr)])
+    return rotated_arr
