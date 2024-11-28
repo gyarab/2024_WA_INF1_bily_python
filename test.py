@@ -92,3 +92,48 @@ def class_and_break_time(start_class: int, end_class: int) -> tuple:
     break_duration = sum(break_times[start_class:end_class])
     
     return class_duration, break_duration
+
+# domáčák - domácí úkol
+import re
+
+def css_color_to_rgb(color):
+    if not isinstance(color, str):
+        raise ValueError("Input must be a string.")
+    
+    # Remove whitespace from the color string
+    color = color.replace(" ", "")
+    
+    # Check if the color is in hexadecimal format
+    if re.match(r"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", color):
+        if len(color) == 4:
+            # Expand shorthand hexadecimal color to full format
+            color = "#" + color[1] * 2 + color[2] * 2 + color[3] * 2
+        
+        # Convert hexadecimal color to RGB
+        r = int(color[1:3], 16)
+        g = int(color[3:5], 16)
+        b = int(color[5:7], 16)
+        
+        return r, g, b
+    
+    # Check if the color is in RGB format
+    if re.match(r"^rgb\(\d{1,3},\d{1,3},\d{1,3}\)$", color):
+        # Extract RGB values from the string
+        r, g, b = map(int, color[4:-1].split(","))
+        
+        return r, g, b
+    
+    # Check if the color is in named format
+    named_colors = {
+        "aliceblue": (240, 248, 255),
+        "antiquewhite": (250, 235, 215),
+        "aqua": (0, 255, 255),
+        "aquamarine": (127, 255, 212),
+        # Add more named colors here
+    }
+    
+    if color.lower() in named_colors:
+        return named_colors[color.lower()]
+    
+    # If the color format is not recognized, raise an error
+    raise ValueError("Invalid color format.")
