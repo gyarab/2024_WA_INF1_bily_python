@@ -52,19 +52,23 @@ def split_into_threes(text):
         return [text[i:i+3] for i in range(0, len(text) - (len(text) % 3), 3)] + [last_chunk]
 
 
-
 def vowels_and_consonants(text):
-    if not isinstance(text, str):
-        raise ValueError("Input must be a string.")
+            if not isinstance(text, str):
+                raise ValueError("Input must be a string.")
             
-    vowels = 0
-    consonants = 0
+            vowels = "aeiouáéíóúůý"
+            consonants = "bcčdďfghjklmnpqrřsštťvwxzž"
             
-    for char in text:
-        if char.isalpha():
-            if char.lower() in "aeiouáéíóúůy":
-                vowels += 1
-            else:
-                consonants += 1
+            text = text.lower()
+            text = ''.join(c for c in text if c.isalpha())
             
-    return {"samohlásky": vowels, "souhlásky": consonants}
+            vowel_count = 0
+            consonant_count = 0
+            
+            for char in text:
+                if char in vowels:
+                    vowel_count += 1
+                elif char in consonants:
+                    consonant_count += 1
+            
+            return {"vowels": vowel_count, "consonants": consonant_count}
