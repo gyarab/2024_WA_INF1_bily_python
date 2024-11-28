@@ -50,3 +50,21 @@ def split_into_threes(text):
     else:
         last_chunk = text[-(len(text) % 3):] if len(text) > 3 else text
         return [text[i:i+3] for i in range(0, len(text) - (len(text) % 3), 3)] + [last_chunk]
+
+
+
+def vowels_and_consonants(text):
+    if not isinstance(text, str):
+        raise ValueError("Input must be a string.")
+            
+    vowels = 0
+    consonants = 0
+            
+    for char in text:
+        if char.isalpha():
+            if char.lower() in "aeiouáéíóúůy":
+                vowels += 1
+            else:
+                consonants += 1
+            
+    return {"samohlásky": vowels, "souhlásky": consonants}
