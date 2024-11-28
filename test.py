@@ -1,4 +1,5 @@
 import math
+
 def fibonacci(n: int) -> int:
     if not isinstance(n, int) or n < 0:
         raise ValueError("Input must be a non-negative integer.")
@@ -53,22 +54,46 @@ def split_into_threes(text):
 
 
 def vowels_and_consonants(text):
-            if not isinstance(text, str):
-                raise ValueError("Input must be a string.")
-            
-            vowels = "aeiouáéíóúůý"
-            consonants = "bcčdďfghjklmnpqrřsštťvwxzž"
-            
-            text = text.lower()
-            text = ''.join(c for c in text if c.isalpha())
-            
-            vowel_count = 0
-            consonant_count = 0
-            
-            for char in text:
-                if char in vowels:
-                    vowel_count += 1
-                elif char in consonants:
-                    consonant_count += 1
-            
-            return {"vowels": vowel_count, "consonants": consonant_count}
+    if not isinstance(text, str):
+        raise ValueError("Input must be a string.")
+    
+    vowels = "aeiouáéíóúůý"
+    consonants = "bcčdďfghjklmnpqrřsštťvwxzž"
+    
+    text = text.lower()
+    # generátorová funkce - vrací znaky, které jsou alfanumerické
+    text = ''.join(c for c in text if c.isalpha())
+    
+    vowel_count = 0
+    consonant_count = 0
+    
+    for char in text:
+        if char in vowels:
+            vowel_count += 1
+        elif char in consonants:
+            consonant_count += 1
+    
+    return {"vowels": vowel_count, "consonants": consonant_count}
+
+def class_and_break_time(start_class: int, end_class: int) -> tuple:
+    if not isinstance(start_class, int) or not isinstance(end_class, int) or start_class < 0 or end_class < 0:
+        raise ValueError("Both arguments must be positive integers.")
+    
+    if start_class > end_class:
+        raise ValueError("Start class cannot be after end class.")
+    
+    if start_class > 12 or end_class > 12:
+        raise ValueError("Class hours cannot exceed 12.")
+    
+    class_duration = (end_class - start_class + 1) * 45
+    
+    break_times = [0, 5, 10, 20, 10, 10, 5, 5, 10, 10, 5, 5]
+    # Adjust indexing for 1-based to 0-based
+    break_duration = sum(break_times[start_class:end_class])
+    
+    return class_duration, break_duration
+
+print(class_and_break_time(1, 12))
+print(class_and_break_time(3,4))
+print(class_and_break_time(1, 12))
+print(class_and_break_time(1, 1))
