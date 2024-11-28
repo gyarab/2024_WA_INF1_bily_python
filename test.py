@@ -41,3 +41,12 @@ def rotate_array(arr, n):
     for i in range(len(arr)):
         rotated_arr.append(arr[(i - n) % len(arr)])
     return rotated_arr
+
+def split_into_threes(text):
+    if not isinstance(text, str):
+        raise ValueError("Input must be a string.")
+    if len(text) % 3 == 0:
+        return [text[i:i+3] for i in range(0, len(text), 3)]
+    else:
+        last_chunk = text[-(len(text) % 3):] if len(text) > 3 else text
+        return [text[i:i+3] for i in range(0, len(text) - (len(text) % 3), 3)] + [last_chunk]
