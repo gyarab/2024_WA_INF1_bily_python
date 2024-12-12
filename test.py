@@ -52,7 +52,6 @@ def split_into_threes(text):
         last_chunk = text[-(len(text) % 3):] if len(text) > 3 else text
         return [text[i:i+3] for i in range(0, len(text) - (len(text) % 3), 3)] + [last_chunk]
 
-
 def vowels_and_consonants(text):
     if not isinstance(text, str):
         raise ValueError("Input must be a string.")
