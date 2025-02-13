@@ -1,0 +1,13 @@
+{% extends 'content/base.html' %}
+
+{% block title %}
+    <h2><strong>Autoři</strong></h2>
+{% endblock %}
+
+{% block main %}
+    {% for authos in authors %}
+        <h3><span onclick="window.location='{% url 'content:authors' author.id %}'">{{ article.title }}</span></h2>
+        <strong>{{ article.category.name }}</strong> - <strong>{{ article.author }}</strong> - <strong>{{ article.published }}</strong>
+        <p>{{ article.perex }}</p>
+    {% endfor %}
+{% endblock %}

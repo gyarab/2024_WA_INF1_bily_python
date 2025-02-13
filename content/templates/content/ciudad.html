@@ -1,0 +1,45 @@
+{% extends 'content/base.html' %}
+
+{% block main %} \
+<div class="container mt-4">
+    <h1>{{ article.title }}</h1>
+    <p><strong>Published:</strong> {{ article.published }} <strong>Publishedß by:</strong> {{ article.author }}</p>
+    <p><strong>Category:</strong> {{ article.category.name }}</p>
+    <p>{{ article.text }}</p>
+
+    {% if article.images.all %}
+    <div id="articleCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in article.images.all %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.caption }}">
+                {% if image.caption %}
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ image.caption }}</h5>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#articleCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#articleCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    {% endif %}
+
+    <h3 class="mt-4">Comments:</h3>
+    <ul>
+        {% for comment in article.comment_set.all %}
+        <li><strong>{{ comment.name }}:</strong> {{ comment.text }}</li>
+        {% empty %}
+        <p>No comments yet.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
