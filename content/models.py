@@ -22,7 +22,7 @@ class Ciudad(models.Model):
     province = models.ForeignKey(Provincia, on_delete=models.CASCADE, default="Castilla la Mancha")
 
     def __str__(self):
-        return self.title
+        return self.name
     
 class Resena(models.Model):
     name = models.CharField(max_length=200)
@@ -33,9 +33,9 @@ class Resena(models.Model):
         return self.name
 
 class Imagen(models.Model):
-    city = models.ForeignKey(Ciudad, on_delete=models.CASCADE, related_name="images")
+    city = models.ForeignKey(Ciudad, on_delete=models.CASCADE, related_name="imagenes")
     image = models.ImageField(upload_to="ciudades/")
     caption = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return f"Image for {self.ciudad.title}"
+        return f"Image for {self.city.name}"

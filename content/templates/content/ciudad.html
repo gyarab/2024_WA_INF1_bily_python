@@ -1,16 +1,16 @@
 {% extends 'content/base.html' %}
 
-{% block main %} \
-<div class="container mt-4">
+{% block main %}
+<div>
     <h1>{{ ciudad.name }}</h1>
-    <p><strong>Populación:</strong> {{ ciudad.population }} <strong>Provincia:</strong> {{ ciudad.province }}</p>
+    <p><strong>Población:</strong> {{ ciudad.population }} <strong>Provincia:</strong> {{ ciudad.province }}</p>
     <p><strong>Categoria:</strong> {{ ciudad.category.name }}</p>
     <p>{{ ciudad.text }}</p>
 
-    {% if ciudad.images.all %}
+    {% if ciudad.imagenes.all %}
     <div id="articleCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            {% for image in ciudad.images.all %}
+            {% for image in ciudad.imagenes.all %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
                 <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.caption }}">
                 {% if image.caption %}
@@ -33,7 +33,7 @@
     </div>
     {% endif %}
 
-    <h3 class="mt-4">Comments:</h3>
+    <h3>Reseñas:</h3>
     <ul>
         {% for reseña in ciudad.comment_set.all %}
         <li><strong>{{ resena.name }}:</strong> {{ resena.text }}</li>

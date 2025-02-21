@@ -2,16 +2,16 @@
 
 {% block main %}
 <div>
-    <h1>{{ provincia.name }}</h1>
+    <h1>{{ categoria.name }}</h1>
 
     <ul>
-        {% for ciudad in provincia.ciudades.all %}
+        {% for ciudad in categoria.ciudades.all %}
         <h3><span onclick="window.location='{% url 'content:ciudad' ciudad.id %}'">{{ ciudad.name }}</span></h2>
             <strong>{{ ciudad.category.name }}</strong> - <strong>{{ ciudad.province }}</strong> - <strong>{{ ciudad.population }} habitantes</strong>
             <p>{{ ciudad.perex }}</p>
         {% empty %}
-        <p>No hay ciudades en esta provincia. 🇪🇸</p>
+        <p>No hay ciudades en esta categoria. 🇪🇸</p>
         {% endfor %}
     </ul>
-</div>
+    </div>
 {% endblock %}

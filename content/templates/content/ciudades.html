@@ -7,7 +7,7 @@
 {% block main %}
     {% for ciudad in ciudades %}
         <h3><span onclick="window.location='{% url 'content:ciudad' ciudad.id %}'">{{ ciudad.name }}</span></h2>
-        <strong>{{ ciudad.category.name }}</strong> - <strong>{{ ciudad.province }}</strong> - <strong>{{ ciudad.population }}</strong>
+        <strong>{{ ciudad.category.name }}</strong> - <strong>{{ ciudad.province }}</strong> - <strong>{{ ciudad.population }} habitantes</strong>
         <p>{{ ciudad.perex }}</p>
     {% endfor %}
 {% endblock %}

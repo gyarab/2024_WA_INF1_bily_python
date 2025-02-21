@@ -5,9 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    {% for authos in provincias %}
-        <h3><span onclick="window.location='{% url 'content:provincias' provincia.id %}'">{{ ciudad.name }}</span></h2>
-        <strong>{{ ciudad.categoria.name }}</strong> - <strong>{{ ciudad.provincia }}</strong> - <strong>{{ ciudad.population }} habitantes</strong>
-        <p>{{ ciudad.perex }}</p>
+    {% for provincia in provincias %}
+        <h3><span onclick="window.location='{% url 'content:provincia' provincia.id %}'">{{ provincia.name }}</span></h3>
     {% endfor %}
 {% endblock %}
