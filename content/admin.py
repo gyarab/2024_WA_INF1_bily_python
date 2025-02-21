@@ -11,4 +11,4 @@ class CiudadAdmin(admin.ModelAdmin):
 admin.site.register(Categoria)
 admin.site.register(Ciudad, CiudadAdmin)
 admin.site.register(Provincia)
-admin.site.register(Resena)
+#admin.site.register(Resena)

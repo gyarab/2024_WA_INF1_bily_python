@@ -14,21 +14,21 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name='categoria',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='Article',
+            name='ciudad',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(default='Title', max_length=200)),
                 ('perex', models.TextField(default='Perex')),
                 ('text', models.TextField(default='Text')),
-                ('published', models.DateTimeField(default=django.utils.timezone.now)),
-                ('category', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='content.category')),
+                ('po', models.DateTimeField(default=django.utils.timezone.now)),
+                ('categoria', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='content.categoria')),
             ],
         ),
     ]

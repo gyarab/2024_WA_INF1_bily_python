@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.timezone import now  # Import timezone function
 
 class Provincia(models.Model):
-    name = models.CharField(max_length=200, default="Ciudad Real")
+    name = models.CharField(max_length=200, default="Castilla la Mancha")
 
     def __str__(self):
         return self.name
@@ -14,10 +14,12 @@ class Categoria(models.Model):
         return self.name
     
 class Ciudad(models.Model):
-    name = models.CharField(max_length=200, default="Titulo")
-    province = models.TextField(default="Perex")
-    text = models.TextField(default="Text")
-    population = models.DateTimeField(default=now)
+    name = models.CharField(max_length=200, default="Nombre")
+    perex = models.TextField(default="Perex")
+    text = models.TextField(default="Texto")
+    population = models.IntegerField(default=0)
+    categories = models.ManyToManyField(Categoria, related_name='ciudades')
+    province = models.ForeignKey(Provincia, on_delete=models.CASCADE, default="Castilla la Mancha")
 
     def __str__(self):
         return self.title
@@ -25,15 +27,15 @@ class Ciudad(models.Model):
 class Resena(models.Model):
     name = models.CharField(max_length=200)
     text = models.TextField()
-    city = models.ForeignKey(Article, on_delete=models.CASCADE)
+    city = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 class Imagen(models.Model):
-    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(upload_to="articles/")
+    city = models.ForeignKey(Ciudad, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to="ciudades/")
     caption = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return f"Image for {self.article.title}"
+        return f"Image for {self.ciudad.title}"

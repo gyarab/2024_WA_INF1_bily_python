@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Author',
+            name='provincia',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(default='Juan Perez', max_length=200)),
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             name='Tag',
         ),
         migrations.AlterField(
-            model_name='article',
+            model_name='ciudad',
             name='title',
             field=models.CharField(default='Titulo', max_length=200),
         ),

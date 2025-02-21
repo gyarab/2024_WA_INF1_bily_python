@@ -22,9 +22,9 @@ class Migration(migrations.Migration):
             name='ArticleImage',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='articles/')),
+                ('image', models.ImageField(upload_to='ciudades/')),
                 ('caption', models.CharField(blank=True, max_length=255, null=True)),
-                ('article', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='content.article')),
+                ('ciudad', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='content.ciudad')),
             ],
         ),
         migrations.CreateModel(
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
                 ('text', models.TextField()),
-                ('article', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='content.article')),
+                ('ciudad', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='content.ciudad')),
             ],
         ),
     ]

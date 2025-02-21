@@ -4,29 +4,26 @@ from .models import Ciudad
 import json
 
 def ciudades(request):
-    articles = Ciudad.objects.all()
+    ciudades = Ciudad.objects.all()
     return render(request, 'content/ciudades.html', {'ciudades': ciudades})
 
 def ciudad(request, id):
-    article = Ciudad.objects.get(id=id)
+    ciudad = Ciudad.objects.get(id=id)
     return render(request, 'content/ciudad.html', {'ciudad': ciudad})
 
 def galeria(request):
-    images = [
-        {"url": "/media/gallery/image1.jpg", "caption": "Image 1"},
-        {"url": "/media/gallery/image2.jpg", "caption": "Image 2"},
-        {"url": "/media/gallery/image3.jpg", "caption": "Image 3"},
+    imagenes = [
     ]
-    return render(request, "content/gallery.html", {"images": images})
+    return render(request, "content/galeria.html", {"imagenes": imagenes})
 
 def provincias(request):
-    return render(request, "content/authors.html")
+    return render(request, "content/provincias.html")
 
 def provincia(request, id):
-    return render(request, "content/author.html")
+    return render(request, "content/provincia.html")
 
 def categorias(request):
-    return render(request, "content/categories.html")
+    return render(request, "content/categorias.html")
 
 def categoria(request, id):
-    return render(request, "content/category.html")
+    return render(request, "content/categoria.html")

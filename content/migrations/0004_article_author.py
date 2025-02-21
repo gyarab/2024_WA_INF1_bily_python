@@ -12,8 +12,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='article',
-            name='author',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='content.author'),
+            model_name='ciudad',
+            name='provincia',
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='content.provincia'),
         ),
     ]
