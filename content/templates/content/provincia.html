@@ -7,11 +7,11 @@
     <ul>
         {% for ciudad in provincia.ciudades.all %}
         <h3><span onclick="window.location='{% url 'content:ciudad' ciudad.id %}'">{{ ciudad.name }}</span></h2>
-            <strong>{{ ciudad.category.name }}</strong> - <strong>{{ ciudad.province }}</strong> - <strong>{{ ciudad.population }} habitantes</strong>
+            <strong>{{ ciudad.category.name }} - <strong>{{ ciudad.population }} habitantes</strong>
             <p>{{ ciudad.perex }}</p>
         {% empty %}
         <p>No hay ciudades en esta provincia. 🇪🇸</p>
         {% endfor %}
     </ul>
-</div>
+    </div>
 {% endblock %}

@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Valladolid, historia y patrimonio en el corazón de Castilla y León",
+        "perex": "Valladolid es una ciudad con un gran legado histórico y cultural. Fue capital de España en el siglo XVII y destaca por su Semana Santa, su gastronomía y su arquitectura renacentista.",
+        "provincia": "Valladolid",
+        "categoria": "Historia y Turismo"
+    },
+    {
+        "name": "Medina del Campo: La villa de Isabel la Católica",
+        "perex": "Medina del Campo es famosa por su Castillo de la Mota y su papel clave en la historia de España. Aquí murió Isabel la Católica y es un importante centro comercial desde la Edad Media.",
+        "provincia": "Valladolid",
+        "categoria": "Historia y Turismo"
+    },
+    {
+        "name": "Peñafiel y su icónico castillo",
+        "perex": "El Castillo de Peñafiel es uno de los más impresionantes de España. Además, la localidad es famosa por su producción de vino en la Ribera del Duero y su Museo Provincial del Vino.",
+        "provincia": "Valladolid",
+        "categoria": "Turismo y Vino"
+    },
+    {
+        "name": "Guadalajara, la ciudad de los Mendoza",
+        "perex": "Guadalajara cuenta con un impresionante patrimonio renacentista, con monumentos como el Palacio del Infantado y la Concatedral de Santa María.",
+        "provincia": "Guadalajara",
+        "categoria": "Historia y Turismo"
+    },
+    {
+        "name": "Sigüenza: Un viaje al pasado medieval",
+        "perex": "La ciudad de Sigüenza es conocida por su imponente castillo, hoy convertido en Parador Nacional, y su catedral, que alberga el famoso Doncel de Sigüenza.",
+        "provincia": "Guadalajara",
+        "categoria": "Turismo Cultural"
+    },
+    {
+        "name": "Brihuega y sus campos de lavanda",
+        "perex": "Brihuega es famosa por sus campos de lavanda, que cada verano atraen a visitantes de todo el mundo. Su casco histórico también cuenta con murallas y una historia fascinante.",
+        "provincia": "Guadalajara",
+        "categoria": "Turismo y Naturaleza"
+    }
+]

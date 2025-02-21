@@ -6,6 +6,6 @@
 
 {% block main %}
     {% for categoria in categorias %}
-        <h3><span onclick="window.location='{% url 'content:categoria' categoria.id %}'">{{ categoria.name }}</span></h3>
+        <h3><span onclick="window.location='{% url 'content:categoria' categoria.id %}'">{{ categoria.name  }}</span></h3>
     {% endfor %}
 {% endblock %}

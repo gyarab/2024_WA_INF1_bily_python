@@ -12,7 +12,7 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 class Ciudad(models.Model):
     name = models.CharField(max_length=200, default="Nombre")
     perex = models.TextField(default="Perex")
