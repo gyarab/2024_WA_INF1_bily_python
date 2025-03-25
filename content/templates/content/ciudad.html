@@ -34,12 +34,28 @@
     {% endif %}
 
     <h3>Reseñas:</h3>
+    {% if ciudad.reviews.all %}
     <ul>
-        {% for reseña in ciudad.comment_set.all %}
-        <li><strong>{{ resena.name }}:</strong> {{ resena.text }}</li>
-        {% empty %}
-        <p>Todavía no hay aquí ninguna reseña.</p>
+        {% for review in ciudad.reviews.all %}
+        <li>
+            <strong>{{ review.name }}</strong> - {{ review.rating }} estrellas
+            <p>{{ review.text }}</p>
+        </li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No hay reseñas</p>
+    {% endif %}
+
+    <h3>Deja tu reseña:</h3>
+    <form action="{% url 'content:ciudad' ciudad.id %}" method="post">
+        {% csrf_token %}
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" id="name" required>
+        <label for="text">Reseña:</label>
+        <textarea name="text" id="text" required></textarea>
+        <label for="rating">Estrellas:</number>
+        <input type="number" name="rating" id="rating" min="1" max="5" required>
+        <button type="submit">Enviar</button>
 </div>
 {% endblock %}

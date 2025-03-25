@@ -1,8 +1,11 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Ciudad
 from .models import Provincia
 from .models import Categoria
+from .forms import ResenaForm
+from .models import Resena
 import json
 
 def ciudades(request):
@@ -11,6 +14,20 @@ def ciudades(request):
 
 def ciudad(request, id):
     ciudad = Ciudad.objects.get(id=id)
+
+    if request.method == "POST":
+        review_form = ResenaForm(request.POST)
+        if review_form.is_valid():
+            review = Resena()
+            review.name = review_form.cleaned_data["name"]
+            review.rating = review_form.cleaned_data["rating"]
+            review.text = review_form.cleaned_data["text"]
+            review.city = ciudad
+            review.save()
+            return HttpResponseRedirect(reverse("content:ciudad", args=[ciudad.id]))
+
+    review_form=ResenaForm()
+    
     return render(request, 'content/ciudad.html', {'ciudad': ciudad})
 
 def galeria(request):
