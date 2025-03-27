@@ -8,7 +8,7 @@ vscode/
 
 # Compiled Python files
 *.pyc
-#db.sqlite3
+db.sqlite3
 
 # Logs
 *.log
