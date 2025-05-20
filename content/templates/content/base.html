@@ -52,6 +52,7 @@
         }
 
         footer {
+            margin-top: 2rem;
             background-color: var(--accent-color);
             color: #fff;
             padding: 1rem;
@@ -70,6 +71,18 @@
             justify-content: center;
             margin: 0;
             padding: 0;
+        }
+
+        .auth_buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+        }
+
+        .error {
+            color: red;
+            margin: 1rem 0;
         }
 
         nav ul li {
@@ -126,9 +139,11 @@
 <body>
     {% include 'content/nav.html' %}
     <h1>{% block title %}{% endblock %}</h1>
-    <main>
+    <main class="container mt-4">
         {% block main %}
+            <h2>{% block subtitle %}{% endblock %}</h2>
         {% endblock %}
+        {% block content %}{% endblock %}
     </main>
     {% include 'content/footer.html' %}
 </body>

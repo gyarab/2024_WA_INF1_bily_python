@@ -3,6 +3,19 @@
     <ul class="nav">
         <li><button class="nav_button" onclick="window.location.href='{% url 'content:ciudades' %}'">Ciudades</button></li>
         <li><button class="nav_button" onclick="window.location.href='{% url 'content:provincias' %}'">Provincias</button></li>
-        <li><button class="nav_button" onclick="window.location.href='{% url 'content:categorias' %}'">Categorias</button></li>
+        <li><button class="nav_button" onclick="window.location.href='{% url 'content:categorias' %}'">Categorías</button></li>
     </ul>
+
+    <div class="auth_buttons">
+        {% if user.is_authenticated %}
+            <span><strong>Bienvenido/a, {{ user.username }}</strong></span>
+            <form method="post" action="{% url 'content:logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="nav_button">Cerrar sesión</button>
+            </form>            
+        {% else %}
+            <button class="nav_button" onclick="window.location.href='{% url 'content:login' %}'">Iniciar sesión</button>
+            <button class="nav_button" onclick="window.location.href='{% url 'content:register' %}'">Registrarse</button>
+        {% endif %}
+    </div>
 </nav>

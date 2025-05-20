@@ -1,0 +1,21 @@
+{% extends "content/base.html" %}
+{% block content %}
+<h2><strong>Registrarse</strong></h2>
+<p>Por favor, completa el siguiente formulario para crear una cuenta.</p>
+
+{% if form.errors %}
+    <div class="error">
+        {% for field in form %}
+            {{ field.errors }}
+        {% endfor %}
+    </div>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"><strong>Registrarse</strong></button>
+</form>
+
+<p>¿Ya tienes una cuenta? <a href="{% url 'content:login' %}"><strong>Inicia sesión</strong></a></p>
+{% endblock %}

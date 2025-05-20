@@ -6,6 +6,12 @@ from .models import Provincia
 from .models import Categoria
 from .forms import ResenaForm
 from .models import Resena
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
+from django.contrib.auth import authenticate
 import json
 
 def ciudades(request):
@@ -44,9 +50,20 @@ def provincia(request, id):
     return render(request, "content/provincia.html", {"provincia": provincia})
 
 def categorias(request):
-    categorias = Categoria.objects.all
+    categorias = Categoria.objects.all()
     return render(request, "content/categorias.html", {"categorias": categorias})
 
 def categoria(request, id):
     categoria = Categoria.objects.get(id=id)
     return render(request, "content/categoria.html", {"categoria": categoria})
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Tu cuenta ha sido creada. Ahora puedes iniciar sesión.')
+            return redirect('content:login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
