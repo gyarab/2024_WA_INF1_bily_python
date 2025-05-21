@@ -6,3 +6,6 @@ django-cors-headers
 django-environ
 django-extensions
 django-debug-toolbar
+python-dotenv
+pillow
+django-social-oauth-token
