@@ -32,6 +32,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["guiaturistico.svs.gyarab.cz","127.0.0.1"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://guiaturistico.svs.gyarab.cz",
+    "http://guiaturistico.svs.gyarab.cz",
+    "http://127.0.0.1",
+]
+
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",
